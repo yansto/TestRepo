@@ -84,7 +84,7 @@
             <configuration>
                 <username>yansto</username>
                 <password>373118f7-2f4a-4c36-bc1e-ad712df0b247</password>
-                <repository>https://hub.docker.com/repository/docker/yansto/station-stats</repository>
+                <repository>station-stats</repository>
                 <tag>${project.version}</tag>
             </configuration>
         </plugin>
