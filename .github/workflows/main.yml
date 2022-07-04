@@ -1,0 +1,32 @@
+name: Release workflow
+on:
+  push:
+    branches: master
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        ref: master
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 17
+    - name: Configure git
+      run: |
+        git config --global committer.email "yannic.storck@gmail.com"
+        git config --global committer.name "yansto"
+        git config --global author.email "yannic.storck@gmail.com"
+        git config --global author.name "yansto"
+    - name: Checkout master branch
+      run: git checkout master
+    - name: Prepare release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn --batch-mode release:prepare -Dusername=yansto -Dpassword=373118f7-2f4a-4c36-bc1e-ad712df0b247
+    - name: Perform release
+      env:
+        DOCKER_HUB_TOKEN: 373118f7-2f4a-4c36-bc1e-ad712df0b247
+      run: mvn --batch-mode release:perform
