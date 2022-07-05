@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-java@v3.4.0
         with:
           java-version: 17
+          distribution: zulu
 
       # Builds the project
       - name: Step 3 - Build Maven Project
