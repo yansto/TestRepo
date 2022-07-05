@@ -53,7 +53,8 @@ jobs:
         uses: actions/setup-java@v3.4.0
         with:
           java-version: 17
-    
+          distribution: zulu
+
       - name: Update version
         run: mvn -B versions:set -DnewVersion=v${{github.run_number}} -DgenerateBackupPoms=false
       - name: Setup Docker Buildx
