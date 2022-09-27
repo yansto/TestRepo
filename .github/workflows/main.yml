@@ -27,7 +27,7 @@ jobs:
           distribution: temurin
       # Build maven project
       - name: Step 4 - Build Maven Project
-        run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml -DskipTests=true -B package --file pom.xml
+        run: mvn -DskipTests=true -B package --file pom.xml
         env:
           ACCESS_TOKEN: ${{ secrets.GH_PAT_FOR_ACTIONS_TOKEN }}
 
