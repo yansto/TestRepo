@@ -40,7 +40,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 7 - Create automatic release
         uses: marvinpinto/action-automatic-releases@latest
-        with:           
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
             LICENSE.txt
