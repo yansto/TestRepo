@@ -46,7 +46,7 @@ jobs:
           files: |
             LICENSE.txt
             *.jar
-          title: ${{env.RELEASE_VERSION}}
+          automatic_release_tag: ${{env.RELEASE_VERSION}}
       - name: Step 7 - Login to OTC
         uses: docker/login-action@v2
         with:
